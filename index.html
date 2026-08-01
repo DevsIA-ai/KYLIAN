@@ -203,34 +203,6 @@ body { font-family: var(--sans); background: var(--cream); color: var(--text); o
   background:linear-gradient(180deg,var(--gold),transparent);
   animation: pulse-scroll 2s ease-in-out infinite;
 }
-#hero-photo {
-  position:absolute; inset:0;
-  width:100%; height:100%; background-size:cover; background-position:center;
-  z-index:0; pointer-events:none; display:none;
-}
-.bg-picker {
-  background:var(--white); text-align:center;
-  padding:2rem 1.5rem 2.25rem;
-  border-bottom:1px solid var(--gold-light);
-}
-.bg-picker-label {
-  font-size:.62rem; letter-spacing:.4em; text-transform:uppercase;
-  color:var(--rose-dark); display:block; margin-bottom:1.1rem;
-}
-.bg-picker-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-.bg-pick-btn {
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding:.8rem 1.7rem; border:1.5px solid var(--gold);
-  border-radius:50px; background:var(--white);
-  font-family:var(--sans); font-size:.72rem; letter-spacing:.12em;
-  color:var(--text); cursor:pointer; transition:all .3s;
-}
-.bg-pick-btn:hover { background:var(--gold-light); }
-.bg-pick-btn.active {
-  background:var(--gold); color:#fff; border-color:var(--gold);
-  box-shadow:0 6px 18px rgba(163,129,79,.4);
-}
-
 .hero-crest {
   width: clamp(95px,18vw,140px);
   display:block; margin:1.5rem auto 0;
@@ -924,7 +896,6 @@ body.env-open { overflow:hidden; }
 <!-- ======================== HERO ======================== -->
 <section id="hero">
   <video id="hero-video" src="video1.mp4" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture></video>
-  <div id="hero-photo" style="background-image:url('principal.jfif')"></div>
   <div id="hero-overlay"></div>
   <div class="sparkle-float" style="top:12%;left:7%;animation-delay:0s">✦</div>
   <div class="sparkle-float" style="top:20%;right:9%;animation-delay:1.6s"><svg class="lion-icon lion-icon--sm"><use href="#lion-emblem"/></svg></div>
@@ -958,19 +929,9 @@ body.env-open { overflow:hidden; }
   </div>
 </section>
 
-<!-- ======================== SELECTOR DE FONDO ======================== -->
-<div class="bg-picker">
-  <span class="bg-picker-label">Elige el fondo de la portada</span>
-  <div class="bg-picker-row">
-    <button type="button" class="bg-pick-btn active" id="bgBtnVideo1" onclick="setHeroBg('video1',this)">▶ Video 1</button>
-    <button type="button" class="bg-pick-btn" id="bgBtnVideo2" onclick="setHeroBg('video2',this)">▶ Video 2</button>
-    <button type="button" class="bg-pick-btn" id="bgBtnFoto" onclick="setHeroBg('foto',this)">🖼 Foto</button>
-  </div>
-</div>
-
 <!-- ======================== COUNTDOWN ======================== -->
 <section id="countdown">
-  <span class="cd-label reveal">Faltan para el bautizo y primer año de Kylian</span>
+  <span class="cd-label reveal">Cuenta Regresiva</span>
 
   <div class="clock-rings">
     <div class="ring-wrap">
@@ -1071,7 +1032,7 @@ body.env-open { overflow:hidden; }
       <div class="familia-card reveal">
         <div class="familia-icon">✞</div>
         <p class="familia-lbl">Sus Papás</p>
-        <p class="familia-name">Lesli León Pérez<br>David Mendoza Heras</p>
+        <p class="familia-name">Lesli Lorena León Pérez<br>David Japheth Mendoza Heras</p>
       </div>
       <div class="familia-card reveal d1">
         <div class="familia-icon">✞</div>
@@ -1100,7 +1061,7 @@ body.env-open { overflow:hidden; }
       <div class="detail-card reveal d1">
         <div class="detail-card-icon">◈</div>
         <p class="detail-card-lbl">Hora</p>
-        <p class="detail-card-val">5:30 pm</p>
+        <p class="detail-card-val">Recepción 5:30 pm<br><span style="font-size:.8rem;color:var(--text-muted)">Inicio 6:00 pm</span></p>
       </div>
       <div class="detail-card reveal d2">
         <div class="detail-card-icon">✦</div>
@@ -1109,12 +1070,16 @@ body.env-open { overflow:hidden; }
       </div>
     </div>
 
+    <p class="reveal" style="font-family:var(--serif);font-style:italic;color:var(--rose-dark);font-size:1rem;text-align:center;margin:-1.5rem 0 2.5rem">
+      Te esperamos con puntualidad ✦ Recepción 5:30 pm · Inicio 6:00 pm
+    </p>
+
     <!-- MAP -->
     <p style="font-family:var(--serif);font-size:1.1rem;color:var(--text-muted);margin:2.5rem 0 .75rem;text-align:center">
       <em>Calle Azucena #115B</em>
     </p>
     <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:.75rem;text-align:center">
-      Col. Las Flores, C.P. 57310 · 5:30 pm
+      Col. Las Flores, C.P. 57310 · Recepción 5:30 pm
     </p>
     <div class="map-box reveal">
       <div class="map-grid-lines"></div>
@@ -1182,16 +1147,11 @@ body.env-open { overflow:hidden; }
       Tu cariño y presencia ya llenan nuestro corazón.
     </p>
 
-    <div class="gift-cards" style="max-width:640px;margin:2.75rem auto 0">
+    <div class="gift-cards" style="max-width:340px;margin:2.75rem auto 0">
       <div class="gift-card reveal">
         <div class="gift-icon">🎁</div>
         <h3 class="gift-title">Obsequios</h3>
         <p class="gift-detail" style="margin-bottom:0">Si deseas obsequiarle algo a Kylian, será bien recibido de forma presencial el día del evento.</p>
-      </div>
-      <div class="gift-card reveal d1">
-        <div class="gift-icon">💌</div>
-        <h3 class="gift-title">Lluvia de Sobres</h3>
-        <p class="gift-detail" style="margin-bottom:0">Si prefieres, puedes traer tu regalo en un sobre — lo recibiremos con mucha gratitud.</p>
       </div>
     </div>
   </div>
@@ -1356,31 +1316,6 @@ function cerrarSobre(){
     heroVideo.muted = true;
     heroVideo.play().catch(()=>{});
   }
-}
-
-/* ---- HERO BACKGROUND SWITCH ---- */
-const heroVideoEl = document.getElementById('hero-video');
-const heroPhotoEl = document.getElementById('hero-photo');
-function setHeroBg(mode, btn){
-  document.querySelectorAll('.bg-pick-btn').forEach(b => b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-
-  if(mode === 'foto'){
-    heroVideoEl.pause();
-    heroVideoEl.style.display = 'none';
-    heroPhotoEl.style.display = 'block';
-    return;
-  }
-
-  heroPhotoEl.style.display = 'none';
-  heroVideoEl.style.display = 'block';
-  const src = mode === 'video1' ? 'video1.mp4' : 'video.mp4';
-  if(!heroVideoEl.src.endsWith(src)){
-    heroVideoEl.src = src;
-    heroVideoEl.load();
-  }
-  heroVideoEl.muted = true;
-  heroVideoEl.play().catch(()=>{});
 }
 
 /* ---- CALENDARIO ---- */
